@@ -105,7 +105,7 @@
 
   - [Privacy Policy](./privacy-policy.md)
   - [Terms of Service](./terms-of-service.md)
-  - [GitHub Repository](./https://github.com/TJXLABS/ShiftTrakApp)
+  - [GitHub Repository] - (https://github.com/TJXLABS/ShiftTrakApp)
 
   ---
 
