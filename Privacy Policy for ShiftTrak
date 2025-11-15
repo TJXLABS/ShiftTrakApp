@@ -1,0 +1,124 @@
+ Privacy Policy for ShiftTrak
+
+  Effective Date: January 2025Last Updated: January 2025
+
+  Introduction
+
+  TJXLABS ("we", "our", or "us") operates the ShiftTrak mobile application (the "App"). This Privacy Policy explains how we handle your information when you use our App.
+
+  Our Commitment: ShiftTrak is designed with privacy as a core principle. Your personal work data stays on your device and is never uploaded to our servers.
+
+  ---
+  Information We Collect
+
+  1. Information You Provide
+
+  When you use ShiftTrak, you may enter:
+  - Work shift details (dates, times, locations)
+  - Earnings information (wage rates, pay amounts)
+  - Employment details (job titles, employer names - optional)
+  - Tags and notes (custom labels you create)
+  - Photos (receipts, rosters, or other images you attach to shifts)
+
+  2. Automatically Collected Information
+
+  - Crash and diagnostic data - Anonymous error reports sent via Firebase Crashlytics to help us fix bugs and improve app stability
+  - Device information - Device model, Android version (only collected during crashes)
+
+  ---
+  How We Store Your Information
+
+  Local Storage
+
+  - All your personal data is stored locally on your device using SQLite database
+  - Your shift data, earnings, photos, and settings never leave your device
+  - We do not have access to your personal information
+  - We do not store your data on any cloud servers
+  - We do not have servers or databases that collect user data
+
+  Third-Party Services
+
+  We use Firebase Crashlytics (by Google) for crash reporting:
+  - Collects anonymous crash logs when the app encounters errors
+  - Does not include your shift data, earnings, or personal information
+  - Helps us identify and fix bugs
+  - You can learn more at https://firebase.google.com/support/privacy                                                                                                                                                                                                                                          
+
+  ---
+  How We Use Your Information
+
+  - Your shift data is used only by you, on your device, to track your work hours and earnings
+  - Crash reports help us fix bugs and improve app performance
+  - We do not sell, rent, or share your personal information with third parties
+  - We do not use your data for advertising or marketing
+
+  ---
+  Data Sharing and Disclosure
+
+  We do not share your personal information with anyone, except:
+  - Firebase Crashlytics receives anonymous crash reports (no personal data)
+  - As required by law if legally compelled to disclose information
+
+  We will never:
+  - Sell your data to third parties
+  - Use your data for advertising
+  - Share your shift or earnings information with anyone
+
+  ---
+  Your Rights and Choices
+
+  You have complete control over your data:
+
+  Access and Export
+
+  - View all your data within the app
+  - Export your data as PDF or CSV files (PRO feature)
+
+  Data Deletion
+
+  - Delete individual shifts from the shift details screen
+  - Clear all app data by uninstalling the app or using Android Settings > Apps > ShiftTrak > Clear Data
+  - Once deleted, data cannot be recovered (we don't have backups - it's only on your device)
+
+  Crash Reporting
+
+  - Crash reporting is enabled by default to help improve the app
+  - You cannot opt-out while using the app, but crash reports contain no personal data
+
+  ---
+  Children's Privacy
+
+  ShiftTrak is not intended for children under 13. We do not knowingly collect information from children under 13. If you believe a child has provided information to us, please contact us.
+
+  ---
+  Data Security
+
+  - All data is stored securely on your device using SQLite database
+  - We implement industry-standard security practices in our code
+  - Your device's built-in security (lock screen, encryption) protects your data
+  - We do not transmit your personal data over the internet
+
+  ---
+  Changes to This Policy
+
+  We may update this Privacy Policy from time to time. Changes will be posted:
+  - In the app (About screen)
+  - On this page with an updated "Last Updated" date
+
+  Continued use of the app after changes means you accept the updated policy.
+
+  ---
+  Contact Us
+
+  If you have questions about this Privacy Policy:
+
+  Developer: TJXLABSEmail: (tjxlabs@gmail.com) Location: Australia
+
+  ---
+  Summary (TL;DR)
+
+  ✅ Your data stays on your device - We don't have servers or cloud storage✅ No account required - No sign-ups, no emails✅ No tracking - We don't track your usage or behavior✅ Anonymous crash reports only - Helps us fix bugs, contains no personal data✅ No ads - We don't collect data for
+  advertising✅ Full control - You can export or delete your data anytime
+
+  ---
+  © 2025 TJXLABS. All rights reserved.
