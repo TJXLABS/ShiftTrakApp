@@ -1,0 +1,307 @@
+ <!DOCTYPE html>                                                                                                                                                                                                                                                                                              
+  <html lang="en">                                                                                                                                                                                                                                                                                             
+  <head>                                                                                                                                                                                                                                                                                                       
+      <meta charset="UTF-8">                                                                                                                                                                                                                                                                                   
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">                                                                                                                                                                                                                                   
+      <meta name="description" content="ShiftTrak - Track work shifts, earnings & hours. Calculate overtime, holiday pay & tax. Export timesheets.">                                                                                                                                                           
+      <title>ShiftTrak - Shift Tracker & Timesheet Manager</title>                                                                                                                                                                                                                                             
+      <style>                                                                                                                                                                                                                                                                                                  
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+
+          body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+              line-height: 1.6;
+              color: #333;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              min-height: 100vh;
+          }
+
+          .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 20px;
+          }
+
+          header {
+              text-align: center;
+              padding: 60px 20px;
+              color: white;
+          }
+
+          .logo {
+              width: 120px;
+              height: 120px;
+              background: white;
+              border-radius: 30px;
+              margin: 0 auto 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 60px;
+              box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+          }
+
+          h1 {
+              font-size: 3em;
+              margin-bottom: 10px;
+              text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+          }
+
+          .tagline {
+              font-size: 1.3em;
+              opacity: 0.95;
+              margin-bottom: 30px;
+          }
+
+          .cta-button {
+              display: inline-block;
+              background: white;
+              color: #667eea;
+              padding: 15px 40px;
+              border-radius: 30px;
+              text-decoration: none;
+              font-weight: bold;
+              font-size: 1.1em;
+              margin: 10px;
+              box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+              transition: transform 0.2s, box-shadow 0.2s;
+          }
+
+          .cta-button:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+          }
+
+          .cta-button.secondary {
+              background: transparent;
+              color: white;
+              border: 2px solid white;
+          }
+
+          .features {
+              background: white;
+              border-radius: 20px;
+              padding: 60px 40px;
+              margin: 40px 0;
+              box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+          }
+
+          .features h2 {
+              text-align: center;
+              font-size: 2.5em;
+              margin-bottom: 50px;
+              color: #667eea;
+          }
+
+          .feature-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 30px;
+              margin-bottom: 40px;
+          }
+
+          .feature {
+              text-align: center;
+              padding: 20px;
+          }
+
+          .feature-icon {
+              font-size: 3em;
+              margin-bottom: 15px;
+          }
+
+          .feature h3 {
+              font-size: 1.3em;
+              margin-bottom: 10px;
+              color: #333;
+          }
+
+          .feature p {
+              color: #666;
+          }
+
+          .pro-badge {
+              display: inline-block;
+              background: linear-gradient(135deg, #ffd700, #ffed4e);
+              color: #333;
+              padding: 4px 12px;
+              border-radius: 12px;
+              font-size: 0.7em;
+              font-weight: bold;
+              margin-left: 8px;
+          }
+
+          .privacy {
+              background: #f8f9fa;
+              border-radius: 20px;
+              padding: 40px;
+              text-align: center;
+              margin: 40px 0;
+          }
+
+          .privacy h2 {
+              font-size: 2em;
+              margin-bottom: 20px;
+              color: #667eea;
+          }
+
+          .privacy-features {
+              display: flex;
+              justify-content: center;
+              gap: 40px;
+              flex-wrap: wrap;
+              margin-top: 30px;
+          }
+
+          .privacy-item {
+              font-size: 1.1em;
+          }
+
+          footer {
+              text-align: center;
+              padding: 40px 20px;
+              color: white;
+          }
+
+          footer a {
+              color: white;
+              text-decoration: none;
+              margin: 0 15px;
+              opacity: 0.9;
+          }
+
+          footer a:hover {
+              opacity: 1;
+              text-decoration: underline;
+          }
+
+          .coming-soon {
+              background: #fff3cd;
+              padding: 8px 16px;
+              border-radius: 20px;
+              font-size: 0.9em;
+              color: #856404;
+              margin-top: 10px;
+          }
+
+          @media (max-width: 768px) {
+              h1 {
+                  font-size: 2em;
+              }
+
+              .tagline {
+                  font-size: 1.1em;
+              }
+
+              .features {
+                  padding: 40px 20px;
+              }
+
+              .feature-grid {
+                  grid-template-columns: 1fr;
+              }
+          }
+      </style>                                                                                                                                                                                                                                                                                                 
+  </head>                                                                                                                                                                                                                                                                                                      
+  <body>                                                                                                                                                                                                                                                                                                       
+      <div class="container">                                                                                                                                                                                                                                                                                  
+          <header>                                                                                                                                                                                                                                                                                             
+              <div class="logo">💼</div>                                                                                                                                                                                                                                                                       
+              <h1>ShiftTrak</h1>                                                                                                                                                                                                                                                                               
+              <p class="tagline">Track your work shifts, earnings, and hours with ease</p>                                                                                                                                                                                                                     
+              <div>                                                                                                                                                                                                                                                                                            
+                  <a href="#" class="cta-button">Download on Google Play</a>                                                                                                                                                                                                                                   
+                  <a href="https://github.com/yourusername/shifttrak" class="cta-button secondary">View on GitHub</a>                                                                                                                                                                                          
+              </div>                                                                                                                                                                                                                                                                                           
+              <p class="coming-soon">Coming Soon to Google Play Store</p>                                                                                                                                                                                                                                      
+          </header>                                                                                                                                                                                                                                                                                            
+
+          <section class="features">                                                                                                                                                                                                                                                                           
+              <h2>✨ Features</h2>                                                                                                                                                                                                                                                                              
+
+              <div class="feature-grid">                                                                                                                                                                                                                                                                       
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">📅</div>                                                                                                                                                                                                                                                       
+                      <h3>Track Shifts</h3>                                                                                                                                                                                                                                                                    
+                      <p>Log unlimited work shifts with start and end times</p>                                                                                                                                                                                                                                
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">💰</div>                                                                                                                                                                                                                                                       
+                      <h3>Calculate Earnings</h3>                                                                                                                                                                                                                                                              
+                      <p>Automatic pay calculations with your wage rate</p>                                                                                                                                                                                                                                    
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">⏰</div>                                                                                                                                                                                                                                                        
+                      <h3>Overtime Tracking</h3>                                                                                                                                                                                                                                                               
+                      <p>Automatically calculates overtime pay</p>                                                                                                                                                                                                                                             
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">🎉</div>                                                                                                                                                                                                                                                       
+                      <h3>Holiday Pay</h3>                                                                                                                                                                                                                                                                     
+                      <p>Special rates for public holidays</p>                                                                                                                                                                                                                                                 
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">🧮</div>                                                                                                                                                                                                                                                       
+                      <h3>Tax Estimation</h3>                                                                                                                                                                                                                                                                  
+                      <p>Australian tax calculator built-in</p>                                                                                                                                                                                                                                                
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">📊</div>                                                                                                                                                                                                                                                       
+                      <h3>Analytics</h3>                                                                                                                                                                                                                                                                       
+                      <p>View earnings and hours summaries</p>                                                                                                                                                                                                                                                 
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">📄</div>                                                                                                                                                                                                                                                       
+                      <h3>PDF Export <span class="pro-badge">PRO</span></h3>                                                                                                                                                                                                                                   
+                      <p>Generate professional timesheets</p>                                                                                                                                                                                                                                                  
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">🎨</div>                                                                                                                                                                                                                                                       
+                      <h3>Custom Themes <span class="pro-badge">PRO</span></h3>                                                                                                                                                                                                                                
+                      <p>6 colors + Dark Mode</p>                                                                                                                                                                                                                                                              
+                  </div>                                                                                                                                                                                                                                                                                       
+
+                  <div class="feature">                                                                                                                                                                                                                                                                        
+                      <div class="feature-icon">⏱️</div>                                                                                                                                                                                                                                                       
+                      <h3>Live Timer <span class="pro-badge">PRO</span></h3>                                                                                                                                                                                                                                   
+                      <p>Track shifts in real-time</p>                                                                                                                                                                                                                                                         
+                  </div>                                                                                                                                                                                                                                                                                       
+              </div>                                                                                                                                                                                                                                                                                           
+          </section>                                                                                                                                                                                                                                                                                           
+
+          <section class="privacy">                                                                                                                                                                                                                                                                            
+              <h2>🔒 Your Privacy Matters</h2>                                                                                                                                                                                                                                                                 
+              <p style="font-size: 1.1em; margin-bottom: 20px;">All your data stays on your device. No cloud storage, no tracking.</p>                                                                                                                                                                         
+
+              <div class="privacy-features">                                                                                                                                                                                                                                                                   
+                  <div class="privacy-item">✅ 100% Local Storage</div>                                                                                                                                                                                                                                         
+                  <div class="privacy-item">✅ No Account Required</div>                                                                                                                                                                                                                                        
+                  <div class="privacy-item">✅ No Ads</div>                                                                                                                                                                                                                                                     
+                  <div class="privacy-item">✅ No Tracking</div>                                                                                                                                                                                                                                                
+              </div>                                                                                                                                                                                                                                                                                           
+          </section>                                                                                                                                                                                                                                                                                           
+
+          <footer>                                                                                                                                                                                                                                                                                             
+              <p><strong>ShiftTrak</strong> by TJXLABS 🇦🇺</p>                                                                                                                                                                                                                                                
+              <p style="margin: 20px 0;">                                                                                                                                                                                                                                                                      
+                  <a href="./privacy-policy.md">Privacy Policy</a>                                                                                                                                                                                                                                             
+                  <a href="./terms-of-service.md">Terms of Service</a>                                                                                                                                                                                                                                         
+                  <a href="./support.md">Support</a>                                                                                                                                                                                                                                                           
+                  <a href="mailto:tjxlabs@gmail.com">Contact</a>                                                                                                                                                                                                                                               
+              </p>                                                                                                                                                                                                                                                                                             
+              <p style="opacity: 0.8; font-size: 0.9em;">© 2025 TJXLABS. All rights reserved.</p>                                                                                                                                                                                                              
+          </footer>                                                                                                                                                                                                                                                                                            
+      </div>                                                                                                                                                                                                                                                                                                   
+  </body>                                                                                                                                                                                                                                                                                                      
+  </html>                                 
