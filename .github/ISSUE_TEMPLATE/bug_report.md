@@ -1,9 +1,9 @@
 ---
 name: Bug Report
 about: Report a bug or issue
-title: '[BUG] '
+title: "[BUG] "
 labels: bug, priority: medium
-assignees: ''
+assignees: ""
 ---
 
 ## 🐛 Bug Description
@@ -38,18 +38,3 @@ Any other relevant information about the problem.
 - [ ] High - Major feature broken
 - [x] Medium - Feature partially broken
 - [ ] Low - Minor issue/cosmetic
-```
-
-**The key difference:** You need the `---` lines at the very top and after the metadata section. That part tells GitHub this is a template.
-
-Your file is missing the first `---` at line 1!
-
-**It should start with:**
-```
----
-name: Bug Report
-```
-
-Not just:
-```
-name: Bug Report
