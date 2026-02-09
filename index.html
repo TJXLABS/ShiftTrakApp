@@ -3,345 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ShiftTrak - Track work shifts, earnings & hours. Calculate overtime, holiday pay & tax. Export timesheets. Available now on Google Play.">
-    <title>ShiftTrak - Shift Tracker & Timesheet Manager</title>
+    <meta name="description" content="ShiftTrak - Track work shifts, earnings & hours. Built for the Australian workforce.">
+    <title>ShiftTrak | Master Your Schedule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;500;800&display=swap');
+        
+        :root { font-family: 'Bricolage Grotesque', sans-serif; }
+        body { background-color: #030303; color: #ffffff; }
+
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-5px);
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e5e5e5;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            min-height: 100vh;
+        .glow-button {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+            transform: scale(1.02);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .shimmer {
+            background: linear-gradient(90deg, #030303 0%, #1a1a1a 50%, #030303 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
         }
-
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #404040 0%, #505050 100%);
-            border-radius: 30px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        
+        .pro-label {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .tagline {
-            font-size: 1.3em;
-            opacity: 0.85;
-            margin-bottom: 30px;
-            color: #b0b0b0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #505050 0%, #606060 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
-            background: linear-gradient(135deg, #606060 0%, #707070 100%);
-        }
-
-        .cta-button.secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e0e0e0;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-button.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .live-badge {
-            display: inline-block;
-            background: rgba(34, 197, 94, 0.2);
-            color: #4ade80;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            margin-top: 15px;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-
-        .features {
-            background: linear-gradient(135deg, #2a2a2a 0%, #333333 100%);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 40px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #ffffff;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-
-        .feature h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .feature p {
-            color: #b0b0b0;
-        }
-
-        .pro-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #1a1a1a;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.7em;
-            font-weight: bold;
-            margin-left: 8px;
-        }
-
-        .privacy {
-            background: linear-gradient(135deg, #2a2a2a 0%, #333333 100%);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin: 40px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .privacy h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .privacy > p {
-            color: #b0b0b0;
-        }
-
-        .privacy-features {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .privacy-item {
-            font-size: 1.1em;
-            color: #d0d0d0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #b0b0b0;
-        }
-
-        footer a {
-            color: #d0d0d0;
-            text-decoration: none;
-            margin: 0 15px;
-            opacity: 0.9;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid transparent;
-        }
-
-        footer a:hover {
-            opacity: 1;
-            color: white;
-            border-bottom-color: rgba(255, 255, 255, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .tagline {
-                font-size: 1.1em;
-            }
-
-            .features {
-                padding: 40px 20px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .privacy-features {
-                gap: 20px;
-            }
+            font-weight: 800;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <div class="logo">💼</div>
-            <h1>ShiftTrak</h1>
-            <p class="tagline">Track your work shifts, earnings, and hours with ease</p>
-            <div>
-                <a href="https://play.google.com/store/apps/details?id=com.shifttrack.shift_track" class="cta-button" target="_blank" rel="noopener">Download on Google Play</a>
-                <a href="https://github.com/TJXLABS/ShiftTrakApp" class="cta-button secondary" target="_blank" rel="noopener">View on GitHub</a>
-            </div>
-            <p class="live-badge">🎉 Now Live on Google Play Store</p>
-        </header>
+<body class="selection:bg-indigo-500/30">
 
-        <section class="features">
-            <h2>✨ Features</h2>
-
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-icon">📅</div>
-                    <h3>Track Shifts</h3>
-                    <p>Log unlimited work shifts with start and end times</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">💰</div>
-                    <h3>Calculate Earnings</h3>
-                    <p>Automatic pay calculations with your wage rate</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">⏰</div>
-                    <h3>Overtime Tracking</h3>
-                    <p>Automatically calculates overtime pay</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">🎉</div>
-                    <h3>Holiday Pay</h3>
-                    <p>Special rates for public holidays</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">🧮</div>
-                    <h3>Tax Estimation</h3>
-                    <p>Australian tax calculator built-in</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Analytics</h3>
-                    <p>View earnings and hours summaries</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">📄</div>
-                    <h3>PDF Export <span class="pro-badge">PRO</span></h3>
-                    <p>Generate professional timesheets</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Custom Themes <span class="pro-badge">PRO</span></h3>
-                    <p>6 colors + Dark Mode</p>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>Live Timer <span class="pro-badge">PRO</span></h3>
-                    <p>Track shifts in real-time</p>
+    <header class="relative pt-24 pb-16 px-6 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-indigo-600/10 blur-[120px] rounded-full -z-10"></div>
+        
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="mb-8 flex justify-center">
+                <div class="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[2rem] flex items-center justify-center text-5xl shadow-2xl border border-white/20 animate-bounce-slow">
+                    💼
                 </div>
             </div>
-        </section>
-
-        <section class="privacy">
-            <h2>🔒 Your Privacy Matters</h2>
-            <p style="font-size: 1.1em; margin-bottom: 20px;">All your data stays on your device. No cloud storage, no tracking.</p>
-
-            <div class="privacy-features">
-                <div class="privacy-item">✅ 100% Local Storage</div>
-                <div class="privacy-item">✅ No Account Required</div>
-                <div class="privacy-item">✅ No Ads</div>
-                <div class="privacy-item">✅ No Tracking</div>
-            </div>
-        </section>
-
-        <footer>
-            <p><strong>ShiftTrak</strong> by TJXLABS 🇦🇺</p>
-            <p style="margin: 20px 0;">
-                <a href="privacy-policy">Privacy Policy</a>
-                <a href="terms-of-service">Terms of Service</a>
-                <a href="support">Support</a>
-                <a href="mailto:tjxlabs@gmail.com">Contact</a>
+            
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+                ShiftTrak
+            </h1>
+            
+            <p class="text-gray-400 text-xl md:text-2xl max-w-2xl mx-auto mb-10 font-light tracking-tight">
+                Stop guessing your paycheck. Track shifts, calculate tax, and export timesheets with <span class="text-white font-medium">zero friction.</span>
             </p>
-            <p style="opacity: 0.8; font-size: 0.9em;">© 2026 TJXLABS. All rights reserved.</p>
-        </footer>
-    </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                <a href="https://play.google.com/store/apps/details?id=com.shifttrack.shift_track" class="bg-white text-black px-10 py-5 rounded-2xl font-extrabold text-lg glow-button flex items-center justify-center gap-2">
+                    <i data-lucide="download"></i> GOOGLE PLAY
+                </a>
+                <a href="https://github.com/TJXLABS/ShiftTrakApp" class="glass-card px-10 py-5 rounded-2xl font-extrabold text-lg flex items-center justify-center gap-2">
+                    <i data-lucide="github"></i> GITHUB
+                </a>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-xs font-bold text-indigo-400 uppercase tracking-widest">
+                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-ping"></span>
+                Now Live in Australia 🇦🇺
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold mb-4 italic tracking-tighter">ENGINEERED FOR WORKERS</h2>
+            <p class="text-gray-500 uppercase tracking-[0.3em] text-[10px] font-black">Feature Set v1.0</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-8 rounded-[2rem] group">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="calendar"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Daily Logging</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">Log shifts with precision start and end times. Built for high-frequency use.</p>
+                <span class="text-[10px] font-black bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded">FREQUENCY: MULTIPLE LOGS / DAY</span>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2rem] group">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="dollar-sign"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">AU Tax Calculator</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">Real-time estimations of your take-home pay after tax and penalty rates.</p>
+                <span class="text-[10px] font-black bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded">REAL-TIME CALCULATION</span>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2rem] group border-indigo-500/20 bg-indigo-500/5">
+                <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="file-text"></i>
+                </div>
+                <div class="flex items-center gap-2 mb-2">
+                    <h3 class="text-xl font-bold">PDF Export</h3>
+                    <span class="pro-label text-[10px]">PRO</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">Generate professional timesheets to send directly to your employer.</p>
+                <span class="text-[10px] font-black bg-amber-500/20 text-amber-300 px-2 py-1 rounded">INSTANT GENERATION</span>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2rem] group">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="clock"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Overtime Engine</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Automatically identifies and tracks overtime and public holiday rates.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2rem] group">
+                <div class="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center text-pink-400 mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="bar-chart-3"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Live Analytics</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Visualize your earnings trends and hours worked per month.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-[2rem] group">
+                <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="palette"></i>
+                </div>
+                <div class="flex items-center gap-2 mb-2">
+                    <h3 class="text-xl font-bold">Custom UI</h3>
+                    <span class="pro-label text-[10px]">PRO</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed">6 premium color themes including an OLED-black Dark Mode.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-[#080808]">
+        <div class="max-w-4xl mx-auto glass-card p-12 rounded-[3rem] text-center border-indigo-500/10">
+            <div class="inline-flex p-4 bg-indigo-500/10 rounded-2xl mb-8">
+                <i data-lucide="shield-check" class="w-10 h-10 text-indigo-400"></i>
+            </div>
+            <h2 class="text-4xl font-bold mb-6">Your data. Your device.</h2>
+            <p class="text-gray-400 text-lg mb-10 leading-relaxed font-light italic">
+                "We don't want your data. ShiftTrak is built on the principle of 100% local storage. No accounts, no clouds, no tracking. Period."
+            </p>
+            <div class="flex flex-wrap justify-center gap-8 opacity-60">
+                <div class="flex items-center gap-2 font-black text-[10px] tracking-widest uppercase">
+                    <i data-lucide="database" class="w-4 h-4"></i> Local Only
+                </div>
+                <div class="flex items-center gap-2 font-black text-[10px] tracking-widest uppercase">
+                    <i data-lucide="user-minus" class="w-4 h-4"></i> No Accounts
+                </div>
+                <div class="flex items-center gap-2 font-black text-[10px] tracking-widest uppercase">
+                    <i data-lucide="eye-off" class="w-4 h-4"></i> Zero Ads
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto text-center">
+            <h3 class="text-2xl font-black mb-8 italic tracking-widest">ShiftTrak by TJXLABS</h3>
+            <div class="flex flex-wrap justify-center gap-8 text-sm font-bold text-gray-500 mb-12 uppercase tracking-tighter">
+                <a href="privacy-policy" class="hover:text-white transition">Privacy</a>
+                <a href="terms-of-service" class="hover:text-white transition">Terms</a>
+                <a href="support" class="hover:text-white transition">Support</a>
+                <a href="mailto:tjxlabs@gmail.com" class="hover:text-white transition">Contact</a>
+            </div>
+            <div class="text-[10px] text-gray-700 font-black tracking-[0.5em] uppercase">
+                © 2026 TJXLABS. HANDCRAFTED IN NSW, AUSTRALIA.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
